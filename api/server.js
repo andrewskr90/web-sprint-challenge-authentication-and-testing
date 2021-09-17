@@ -18,6 +18,7 @@ server.use('/api/jokes', restrict, jokesRouter); // only logged-in users should 
 
 server.use((err, req, res, next) => { //eslint-disable-line
     res.status( err.status || 500 ).json({
+        errorStatus: err.status,
         message: err.message,
         sageAdvice: 'its a long way down to the final err message'
     })
